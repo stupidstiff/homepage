@@ -1,0 +1,575 @@
+/* ==========================================
+   CSS VARIABLES - Farbpalette
+   ========================================== */
+:root {
+    --color-white: #FFFFFF;
+    --color-black: #1a1a1a;
+    --color-blue: #2563eb;
+    --color-red: #dc2626;
+    --color-gray-light: #f5f5f5;
+    --color-gray: #6b7280;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-xxl: 4rem;
+
+    /* Typography */
+    --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+    /* Transitions */
+    --transition: all 0.3s ease;
+}
+
+/* ==========================================
+   RESET & BASE STYLES - Mobile First
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--color-black);
+    background-color: var(--color-white);
+    font-size: 16px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ==========================================
+   CONTAINER - Mobile First
+   ========================================== */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+/* ==========================================
+   NAVIGATION - Mobile First
+   ========================================== */
+.navbar {
+    background-color: var(--color-white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: var(--spacing-sm) 0;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-blue);
+    transition: var(--transition);
+}
+
+.logo:hover {
+    color: var(--color-red);
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-black);
+    transition: var(--transition);
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Navigation Menu */
+.nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: var(--color-white);
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-xxl) var(--spacing-lg);
+    transition: var(--transition);
+}
+
+.nav-menu.active {
+    right: 0;
+}
+
+.nav-menu li {
+    margin-bottom: var(--spacing-md);
+}
+
+.nav-link {
+    display: block;
+    color: var(--color-black);
+    font-size: 1.1rem;
+    padding: var(--spacing-xs);
+    transition: var(--transition);
+    border-left: 3px solid transparent;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--color-blue);
+    border-left-color: var(--color-blue);
+    padding-left: var(--spacing-sm);
+}
+
+/* ==========================================
+   HEADER - Mobile First
+   ========================================== */
+.header {
+    background: linear-gradient(135deg, var(--color-blue) 0%, #1e40af 100%);
+    color: var(--color-white);
+    padding: var(--spacing-xxl) 0;
+    text-align: center;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+.header-content {
+    animation: fadeInUp 0.8s ease;
+}
+
+.header-title {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+}
+
+.header-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.9;
+}
+
+.header-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
+/* ==========================================
+   BUTTONS - Mobile First
+   ========================================== */
+.btn {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: 5px;
+    font-weight: 600;
+    transition: var(--transition);
+    cursor: pointer;
+    border: 2px solid transparent;
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--color-red);
+    color: var(--color-white);
+}
+
+.btn-primary:hover {
+    background-color: #b91c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(220, 38, 38, 0.3);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-white);
+    border-color: var(--color-white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-white);
+    color: var(--color-blue);
+}
+
+/* ==========================================
+   SECTIONS - Mobile First
+   ========================================== */
+.section {
+    padding: var(--spacing-xxl) 0;
+}
+
+.section-alt {
+    background-color: var(--color-gray-light);
+}
+
+.section-title {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    color: var(--color-black);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-blue);
+    margin: var(--spacing-sm) auto 0;
+}
+
+/* ==========================================
+   GRID & CARDS - Mobile First
+   ========================================== */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+}
+
+.card {
+    background-color: var(--color-white);
+    padding: var(--spacing-lg);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-blue);
+}
+
+.card p {
+    color: var(--color-gray);
+}
+
+/* ==========================================
+   SERVICES - Mobile First
+   ========================================== */
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+}
+
+.service-item {
+    background-color: var(--color-white);
+    padding: var(--spacing-lg);
+    border-radius: 10px;
+    border-left: 4px solid var(--color-blue);
+    transition: var(--transition);
+}
+
+.service-item:hover {
+    border-left-color: var(--color-red);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-black);
+}
+
+.service-item p {
+    color: var(--color-gray);
+}
+
+/* ==========================================
+   CONTACT FORM - Mobile First
+   ========================================== */
+.contact-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form {
+    background-color: var(--color-white);
+    padding: var(--spacing-lg);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-black);
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 2px solid #e5e7eb;
+    border-radius: 5px;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-blue);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.contact-form .btn {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* ==========================================
+   FOOTER - Mobile First
+   ========================================== */
+.footer {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: var(--spacing-xl) 0 var(--spacing-lg);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.footer-section h4 {
+    color: var(--color-blue);
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-section p {
+    color: #9ca3af;
+    line-height: 1.8;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.footer-links a {
+    color: #9ca3af;
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--color-blue);
+    padding-left: var(--spacing-xs);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid #374151;
+    color: #9ca3af;
+}
+
+/* ==========================================
+   ANIMATIONS
+   ========================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   RESPONSIVE - TABLET (768px+)
+   ========================================== */
+@media (min-width: 768px) {
+    .container {
+        padding: 0 var(--spacing-lg);
+    }
+
+    /* Navigation - Tablet */
+    .menu-toggle {
+        display: none;
+    }
+
+    .nav-menu {
+        position: static;
+        flex-direction: row;
+        width: auto;
+        height: auto;
+        padding: 0;
+        box-shadow: none;
+        background-color: transparent;
+    }
+
+    .nav-menu li {
+        margin-bottom: 0;
+        margin-left: var(--spacing-lg);
+    }
+
+    .nav-link {
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        padding: var(--spacing-xs) 0;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        border-left: none;
+        border-bottom-color: var(--color-blue);
+        padding-left: 0;
+    }
+
+    /* Header - Tablet */
+    .header-title {
+        font-size: 2.5rem;
+    }
+
+    .header-subtitle {
+        font-size: 1.25rem;
+    }
+
+    .header-buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    /* Grid - Tablet */
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Footer - Tablet */
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ==========================================
+   RESPONSIVE - DESKTOP (1024px+)
+   ========================================== */
+@media (min-width: 1024px) {
+    /* Header - Desktop */
+    .header {
+        min-height: 70vh;
+    }
+
+    .header-title {
+        font-size: 3rem;
+    }
+
+    .header-subtitle {
+        font-size: 1.5rem;
+    }
+
+    /* Grid - Desktop */
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+
+    /* Footer - Desktop */
+    .footer-content {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Sections - Desktop */
+    .section {
+        padding: var(--spacing-xxl) 0 5rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* ==========================================
+   RESPONSIVE - LARGE DESKTOP (1280px+)
+   ========================================== */
+@media (min-width: 1280px) {
+    .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
