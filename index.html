@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Eine moderne, responsive Website">
     <title>Meine Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -28,15 +31,15 @@
         </div>
     </nav>
 
-    <!-- Header -->
-    <header class="header" id="home">
+    <!-- Hero -->
+    <header class="hero hero--blue" id="home">
         <div class="container">
-            <div class="header-content">
-                <h1 class="header-title">Willkommen auf unserer Website</h1>
-                <p class="header-subtitle">Moderne, responsive und benutzerfreundlich</p>
-                <div class="header-buttons">
-                    <a href="#contact" class="btn btn-primary">Jetzt starten</a>
-                    <a href="#about" class="btn btn-secondary">Mehr erfahren</a>
+            <div class="hero__content">
+                <h1 class="hero__title">Willkommen auf unserer Website</h1>
+                <p class="hero__subtitle">Moderne, responsive und benutzerfreundlich</p>
+                <div class="hero__buttons">
+                    <a href="#contact" class="btn btn--primary">Jetzt starten</a>
+                    <a href="#about" class="btn btn--secondary-light">Mehr erfahren</a>
                 </div>
             </div>
         </div>
@@ -47,47 +50,55 @@
         <!-- About Section -->
         <section class="section" id="about">
             <div class="container">
-                <h2 class="section-title">Über uns</h2>
-                <div class="grid">
-                    <div class="card">
-                        <div class="card-icon">📱</div>
-                        <h3>Responsive Design</h3>
-                        <p>Perfekte Darstellung auf allen Geräten - vom Smartphone bis zum Desktop.</p>
+                <h2 class="heading heading--2xl heading--center heading--blue">Über uns</h2>
+                <div class="block block--3col">
+                    <div class="feature">
+                        <div class="feature__icon">📱</div>
+                        <h3 class="feature__title">Responsive Design</h3>
+                        <p class="feature__description">Perfekte Darstellung auf allen Geräten - vom Smartphone bis zum Desktop.</p>
                     </div>
-                    <div class="card">
-                        <div class="card-icon">⚡</div>
-                        <h3>Schnell & Modern</h3>
-                        <p>Optimierte Performance für ein erstklassiges Nutzererlebnis.</p>
+                    <div class="feature">
+                        <div class="feature__icon">⚡</div>
+                        <h3 class="feature__title">Schnell & Modern</h3>
+                        <p class="feature__description">Optimierte Performance für ein erstklassiges Nutzererlebnis.</p>
                     </div>
-                    <div class="card">
-                        <div class="card-icon">🎨</div>
-                        <h3>Ansprechendes Design</h3>
-                        <p>Moderne Farbpalette und übersichtliche Gestaltung.</p>
+                    <div class="feature">
+                        <div class="feature__icon">🎨</div>
+                        <h3 class="feature__title">Ansprechendes Design</h3>
+                        <p class="feature__description">Moderne Farbpalette und übersichtliche Gestaltung.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Services Section -->
-        <section class="section section-alt" id="services">
+        <section class="section section--gray" id="services">
             <div class="container">
-                <h2 class="section-title">Unsere Leistungen</h2>
-                <div class="services-grid">
-                    <div class="service-item">
-                        <h3>Webentwicklung</h3>
-                        <p>Professionelle Websites mit modernen Technologien</p>
+                <h2 class="heading heading--2xl heading--center heading--blue">Unsere Leistungen</h2>
+                <div class="block block--4col">
+                    <div class="card">
+                        <div class="card__content">
+                            <h3 class="card__title">Webentwicklung</h3>
+                            <p class="card__description">Professionelle Websites mit modernen Technologien</p>
+                        </div>
                     </div>
-                    <div class="service-item">
-                        <h3>UI/UX Design</h3>
-                        <p>Benutzerfreundliche Interfaces mit ansprechendem Design</p>
+                    <div class="card">
+                        <div class="card__content">
+                            <h3 class="card__title">UI/UX Design</h3>
+                            <p class="card__description">Benutzerfreundliche Interfaces mit ansprechendem Design</p>
+                        </div>
                     </div>
-                    <div class="service-item">
-                        <h3>Beratung</h3>
-                        <p>Kompetente Unterstützung bei Ihren digitalen Projekten</p>
+                    <div class="card">
+                        <div class="card__content">
+                            <h3 class="card__title">Beratung</h3>
+                            <p class="card__description">Kompetente Unterstützung bei Ihren digitalen Projekten</p>
+                        </div>
                     </div>
-                    <div class="service-item">
-                        <h3>Wartung</h3>
-                        <p>Zuverlässiger Support und regelmäßige Updates</p>
+                    <div class="card">
+                        <div class="card__content">
+                            <h3 class="card__title">Wartung</h3>
+                            <p class="card__description">Zuverlässiger Support und regelmäßige Updates</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -95,10 +106,10 @@
 
         <!-- Contact Section -->
         <section class="section" id="contact">
-            <div class="container">
-                <h2 class="section-title">Kontakt aufnehmen</h2>
-                <div class="contact-wrapper">
-                    <form class="contact-form">
+            <div class="container container--narrow">
+                <h2 class="heading heading--2xl heading--center heading--blue">Kontakt aufnehmen</h2>
+                <form class="card">
+                    <div class="card__content">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>
@@ -111,9 +122,9 @@
                             <label for="message">Nachricht</label>
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Nachricht senden</button>
-                    </form>
-                </div>
+                        <button type="submit" class="btn btn--primary btn--full">Nachricht senden</button>
+                    </div>
+                </form>
             </div>
         </section>
     </main>
