@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Design System CheatSheet - Alle Komponenten mit Code-Beispielen">
+    <title>Design System CheatSheet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .code-block {
+            background: var(--color-gray-900);
+            color: #e6eef5;
+            padding: var(--space-lg);
+            margin: var(--space-md) 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            border-left: 4px solid var(--color-blue-primary);
+        }
+        .code-block pre {
+            margin: 0;
+            color: #e6eef5;
+        }
+        .component-box {
+            border: 2px solid var(--color-border);
+            padding: var(--space-xl);
+            margin: var(--space-lg) 0;
+            background: var(--color-gray-100);
+        }
+        .class-tag {
+            display: inline-block;
+            background: var(--color-accent-primary-light);
+            color: var(--color-blue-primary);
+            padding: 0.25rem 0.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            margin: 0.25rem;
+            border: 1px solid var(--color-blue-primary);
+        }
+        .section-nav {
+            position: sticky;
+            top: 80px;
+            background: var(--color-white);
+            padding: var(--space-md);
+            border: 2px solid var(--color-border);
+            margin-bottom: var(--space-xl);
+        }
+        .section-nav h3 {
+            margin-bottom: var(--space-sm);
+            font-size: var(--font-size-md);
+        }
+        .section-nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        .section-nav li {
+            margin-bottom: var(--space-xs);
+        }
+        .section-nav a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-size: var(--font-size-sm);
+        }
+        .section-nav a:hover {
+            color: var(--color-blue-primary);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">Design System CheatSheet</a>
+                <button class="menu-toggle" aria-label="Menü öffnen">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Startseite</a></li>
+                    <li><a href="#layout" class="nav-link">Layout</a></li>
+                    <li><a href="#components" class="nav-link">Komponenten</a></li>
+                    <li><a href="#typography" class="nav-link">Typography</a></li>
+                    <li><a href="#forms" class="nav-link">Forms</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero hero--blue">
+        <div class="container">
+            <div class="hero__content">
+                <span class="badge badge--primary">CheatSheet</span>
+                <h1 class="hero__title">Design System Referenz</h1>
+                <p class="hero__subtitle">Alle Komponenten, Klassen und Code-Beispiele auf einen Blick</p>
+                <div class="hero__buttons">
+                    <a href="#layout" class="btn btn--white">Los geht's</a>
+                    <a href="index.html" class="btn btn--secondary-light">Zur Hauptseite</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Layout Section -->
+        <section class="section" id="layout">
+            <div class="container">
+                <h2 class="heading heading--2xl heading--blue">Layout Komponenten</h2>
+
+                <!-- Container -->
+                <article style="margin-bottom: var(--space-3xl);">
+                    <h3 class="heading heading--xl heading--bordeaux">Container</h3>
+                    <p class="text">Zentrierter Container mit maximaler Breite</p>
+
+                    <h4 class="heading heading--md">Verfügbare Klassen:</h4>
+                    <div>
+                        <span class="class-tag">.container</span>
+                        <span class="class-tag">.container--narrow</span>
+                        <span class="class-tag">.container--wide</span>
+                        <span class="class-tag">.container--full</span>
+                    </div>
+
+                    <div class="code-block"><pre>&lt;div class="container"&gt;
+    &lt;!-- Standardbreite: 1200px --&gt;
+&lt;/div&gt;
+
+&lt;div class="container container--narrow"&gt;
+    &lt;!-- Schmale Breite: 800px --&gt;
+&lt;/div&gt;
+
+&lt;div class="container container--wide"&gt;
+    &lt;!-- Breite Breite: 1400px --&gt;
+&lt;/div&gt;</pre></div>
+                </article>
+
+                <!-- Section -->
+                <article style="margin-bottom: var(--space-3xl);">
+                    <h3 class="heading heading--xl heading--bordeaux">Section</h3>
+                    <p class="text">Vollbreite Section mit Padding</p>
+
+                    <h4 class="heading heading--md">Verfügbare Klassen:</h4>
+                    <div>
+                        <span class="class-tag">.section</span>
+                        <span class="class-tag">.section--gray</span>
+                        <span class="class-tag">.section--blue</span>
+                        <span class="class-tag">.section--dark</span>
+                        <span class="class-tag">.section--sm</span>
+                        <span class="class-tag">.section--lg</span>
+                        <span class="class-tag">.section--xl</span>
+                    </div>
+
+                    <div class="code-block"><pre>&lt;section class="section"&gt;
+    &lt;div class="container"&gt;
+        &lt;!-- Content --&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section class="section section--gray"&gt;
+    &lt;!-- Grauer Hintergrund --&gt;
+&lt;/section&gt;
+
+&lt;section class="section section--lg"&gt;
+    &lt;!-- Größeres Padding --&gt;
+&lt;/section&gt;</pre></div>
+                </article>
+
+                <!-- Block System -->
+                <article style="margin-bottom: var(--space-3xl);">
+                    <h3 class="heading heading--xl heading--bordeaux">Block / Grid System</h3>
+                    <p class="text">Flexibles Grid-System für Layouts</p>
+
+                    <h4 class="heading heading--md">Verfügbare Klassen:</h4>
+                    <div>
+                        <span class="class-tag">.block</span>
+                        <span class="class-tag">.block--2col</span>
+                        <span class="class-tag">.block--3col</span>
+                        <span class="class-tag">.block--4col</span>
+                        <span class="class-tag">.block--auto</span>
+                        <span class="class-tag">.block--vertical</span>
+                        <span class="class-tag">.block--center</span>
+                        <span class="class-tag">.block--gap-sm</span>
+                        <span class="class-tag">.block--gap-md</span>
+                        <span class="class-tag">.block--gap-lg</span>
+                    </div>
+
+                    <div class="component-box">
+                        <div class="block block--3col">
+                            <div class="card"><div class="card__content"><p class="text text--center">1</p></div></div>
+                            <div class="card"><div class="card__content"><p class="text text--center">2</p></div></div>
+                            <div class="card"><div class="card__content"><p class="text text--center">3</p></div></div>
+                        </div>
+                    </div>
+
+                    <div class="code-block"><pre>&lt;div class="block block--3col"&gt;
+    &lt;div&gt;Spalte 1&lt;/div&gt;
+    &lt;div&gt;Spalte 2&lt;/div&gt;
+    &lt;div&gt;Spalte 3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="block block--4col block--gap-lg"&gt;
+    &lt;!-- 4 Spalten mit großem Gap --&gt;
+&lt;/div&gt;
+
+&lt;div class="block block--vertical block--center"&gt;
+    &lt;!-- Vertikal, zentriert --&gt;
+&lt;/div&gt;</pre></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Components Section -->
+        <section class="section section--gray" id="components">
+            <div class="container">
+                <h2 class="heading heading--2xl heading--blue">UI Komponenten</h2>
+
+                <!-- Hero Component -->
+                <article style="margin-bottom: var(--space-3xl);">
+                    <h3 class="heading heading--xl heading--bordeaux">Hero</h3>
+                    <p class="text">Große Header-Sektion mit Titel und Call-to-Action</p>
+
+                    <h4 class="heading heading--md">Verfügbare Klassen:</h4>
+                    <div>
+                        <span class="class-tag">.hero</span>
+                        <span class="class-tag">.hero--blue</span>
+                        <span class="class-tag">.hero--dark</span>
+                        <span class="class-tag">.hero--full</span>
+                        <span class="class-tag">.hero__content</span>
+                        <span class="class-tag">.hero__title</span>
+                        <span class="class-tag">.hero__subtitle</span>
+                        <span class="class-tag">.hero__buttons</span>
+                    </div>
+
+                    <div class="code-block"><pre>&lt;header class="hero hero--blue"&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="hero__content"&gt;
+            &lt;h1 class="hero__title"&gt;Dein Titel&lt;/h1&gt;
+            &lt;p class="hero__subtitle"&gt;Dein Untertitel&lt;/p&gt;
+            &lt;div class="hero__buttons"&gt;
+                &lt;a href="#" class="btn btn--primary"&gt;Button&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/header&gt;</pre></div>
+                </article>
+
+                <!-- Cards -->
+                <article style="margin-bottom: var(--space-3xl);">
+                    <h3 class="heading heading--xl heading--bordeaux">Cards</h3>
+                    <p class="text">Content-Container mit Hover-Effekten</p>
+
+                    <h4 class="heading heading--md">Verfügbare Klassen:</h4>
+                    <div>
+                        <span class="class-tag">.card</span>
+                        <span class="class-tag">.card--dark</span>
+                        <span class="class-tag">.card--featured</span>
+                        <span class="class-tag">.card--bordeaux</span>
+                        <span class="class-tag">.card--no-hover</span>
+                        <span class="class-tag">.card__image</span>
+                        <span class="class-tag">.card__content</span>
+                        <span class="class-tag">.card__title</span>
+                        <span class="class-tag">.card__description</span>
+                        <span class="class-tag">.card__link</span>
+                    </div>
+
+                    <div class="component-box">
+                        <div class="block block--3col">
+                            <div class="card">
+                                <div class="card__content">
+                                    <h3 class="card__title">Standard Card</h3>
+                                    <p class="card__description">Eine normale Card mit Inhalt</p>
+                                    <a href="#" class="card__link">Mehr erfahren</a>
+                                </div>
+                            </div>
+                            <div class="card card--featured">
+                                <div class="card__content">
+                                    <h3 class="card__title">Featured</h3>
+                                    <p class="card__description">Mit Badge</p>
+                                </div>
+                            </div>
+                            <div class="card card--dark">
+                                <div class="card__content">
+                                    <h3 class="card__title">Dark Card</h3>
+                                    <p class="card__description">Dunkler Hintergrund</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-block"><pre>&lt;div class="card"&gt;
+    &lt;div class="card__content"&gt;
+        &lt;h3 class="card__title"&gt;Titel&lt;/h3&gt;
+        &lt;p class="card__description"&gt;Beschreibung&lt;/p&gt;
+        &lt;a href="#" class="card__link"&gt;Link&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="card card--featured"&gt;
+    &lt;!-- Featured Card mit Badge --&gt;
+&lt;/div&gt;
+
+&lt;div class="card card--dark"&gt;
+    &lt;!-- Dunkle Card --&gt;
+&lt;/div&gt;</pre></div>
+                </article>
+
+                <!-- Buttons -->
+                <article style="margin-bottom: var(--space-3xl);">
+                    <h3 class="heading heading--xl heading--bordeaux">Buttons</h3>
+                    <p class="text">Interaktive Button-Komponenten</p>
+
+                    <h4 class="heading heading--md">Verfügbare Klassen:</h4>
+                    <div>
+                        <span class="class-tag">.btn</span>
+                        <span class="class-tag">.btn--primary</span>
+                        <span class="class-tag">.btn--secondary</span>
+                        <span class="class-tag">.btn--bordeaux</span>
+                        <span class="class-tag">.btn--outline-bordeaux</span>
+                        <span class="class-tag">.btn--white</span>
+                        <span class="class-tag">.btn--ghost</span>
+                        <span class="class-tag">.btn--secondary-light</span>
+                        <span class="class-tag">.btn--sm</span>
+                        <span class="class-tag">.btn--lg</span>
+                        <span class="class-tag">.btn--full</span>
+                    </div>
+
+                    <div class="component-box">
+                        <div class="block block--center" style="gap: var(--space-md); flex-wrap: wrap;">
+                            <a href="#" class="btn btn--primary">Primary</a>
+                            <a href="#" class="btn btn--secondary">Secondary</a>
+                            <a href="#" class="btn btn--bordeaux">Bordeaux</a>
+                            <a href="#" class="btn btn--outline-bordeaux">Outline</a>
+                            <a href="#" class="btn btn--ghost">Ghost</a>
+                        </div>
+                        <div class="spacer--sm"></div>
+                        <div class="block block--center" style="gap: var(--space-md);">
+                            <a href="#" class="btn btn--primary btn--sm">Small</a>
+                            <a href="#" class="btn btn--primary">Regular</a>
+                            <a href="#" class="btn btn--primary btn--lg">Large</a>
+                        </div>
+                    </div>
+
+                    <div class="code-block"><pre>&lt;a href="#" class="btn btn--primary"&gt;Primary&lt;/a&gt;
+&lt;a href="#" class="btn btn--secondary"&gt;Secondary&lt;/a&gt;
+&lt;a href="#" class="btn btn--bordeaux"&gt;Bordeaux&lt;/a&gt;
+
+&lt;!-- Größen --&gt;
+&lt;a href="#" class="btn btn--primary btn--sm"&gt;Small&lt;/a&gt;
+&lt;a href="#" class="btn btn--primary btn--lg"&gt;Large&lt;/a&gt;
+&lt;a href="#" class="btn btn--primary btn--full"&gt;Full Width&lt;/a&gt;</pre></div>
+                </article>
+
+                <!-- Features -->
+                <article style="margin-bottom: var(--space-3xl);">
+                    <h3 class="heading heading--xl heading--bordeaux">Features</h3>
+                    <p class="text">Icon + Text Komponenten</p>
+
+                    <h4 class="heading heading--md">Verfügbare Klassen:</h4>
+                    <div>
+                        <span class="class-tag">.feature</span>
+                        <span class="class-tag">.feature--left</span>
+                        <span class="class-tag">.feature__icon</span>
+                        <span class="class-tag">.feature__title</span>
+                        <span class="class-tag">.feature__description</span>
+                    </div>
+
+                    <div class="component-box">
+                        <div class="block block--3col">
+                            <div class="feature">
+                                <div class="feature__icon">🚀</div>
+                                <h3 class="feature__title">Schnell</h3>
+                                <p class="feature__description">Zentriert ausgerichtet</p>
+                            </div>
+                            <div class="feature">
+                                <div class="feature__icon">🎨</div>
+                                <h3 class="feature__title">Modern</h3>
+                                <p class="feature__description">Zeitgemäßes Design</p>
+                            </div>
+                            <div class="feature feature--left">
+                                <div class="feature__icon">✓</div>
+                                <h3 class="feature__title">Links</h3>
+                                <p class="feature__description">Linksbündig</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-block"><pre>&lt;div class="feature"&gt;
+    &lt;div class="feature__icon"&gt;🚀&lt;/div&gt;
+    &lt;h3 class="feature__title"&gt;Titel&lt;/h3&gt;
+    &lt;p class="feature__description"&gt;Text&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="feature feature--left"&gt;
+    &lt;!-- Linksbündige Variante --&gt;
+&lt;/div&gt;</pre></div>
+                </article>
+
+                <!-- CTA -->
+                <article style="margin-bottom: var(--space-3xl);">
+                    <h3 class="heading heading--xl heading--bordeaux">CTA (Call-to-Action)</h3>
+                    <p class="text">Hervorgehobene Aktionsbereiche</p>
+
+                    <h4 class="heading heading--md">Verfügbare Klassen:</h4>
+                    <div>
+                        <span class="class-tag">.cta</span>
+                        <span class="class-tag">.cta--bordeaux</span>
+                        <span class="class-tag">.cta--light</span>
+                        <span class="class-tag">.cta__content</span>
+                        <span class="class-tag">.cta__title</span>
+                        <span class="class-tag">.cta__description</span>
+                        <span class="class-tag">.cta__buttons</span>
+                    </div>
+
+                    <div class="code-block"><pre>&lt;section class="cta cta--bordeaux"&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="cta__content"&gt;
+            &lt;h2 class="cta__title"&gt;Bereit?&lt;/h2&gt;
+            &lt;p class="cta__description"&gt;Los geht's!&lt;/p&gt;
+            &lt;div class="cta__buttons"&gt;
+                &lt;a href="#" class="btn btn--white"&gt;Button&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</pre></div>
+                </article>
+
+                <!-- Badges & Tags -->
+                <article style="margin-bottom: var(--space-3xl);">
+                    <h3 class="heading heading--xl heading--bordeaux">Badges & Tags</h3>
+                    <p class="text">Kleine Label-Komponenten</p>
+
+                    <h4 class="heading heading--md">Badge Klassen:</h4>
+                    <div>
+                        <span class="class-tag">.badge</span>
+                        <span class="class-tag">.badge--primary</span>
+                        <span class="class-tag">.badge--bordeaux</span>
+                        <span class="class-tag">.badge--success</span>
+                        <span class="class-tag">.badge--warning</span>
+                        <span class="class-tag">.badge--danger</span>
+                    </div>
+
+                    <h4 class="heading heading--md">Tag Klassen:</h4>
+                    <div>
+                        <span class="class-tag">.tag</span>
+                        <span class="class-tag">.tag--primary</span>
+                        <span class="class-tag">.tag--bordeaux</span>
+                    </div>
+
+                    <div class="component-box">
+                        <div style="margin-bottom: var(--space-md);">
+                            <span class="badge badge--primary">Primary</span>
+                            <span class="badge badge--bordeaux">Bordeaux</span>
+                            <span class="badge badge--success">Success</span>
+                            <span class="badge badge--warning">Warning</span>
+                            <span class="badge badge--danger">Danger</span>
+                        </div>
+                        <div>
+                            <a href="#" class="tag">Tag</a>
+                            <a href="#" class="tag tag--primary">Primary</a>
+                            <a href="#" class="tag tag--bordeaux">Bordeaux</a>
+                        </div>
+                    </div>
+
+                    <div class="code-block"><pre>&lt;span class="badge badge--primary"&gt;Badge&lt;/span&gt;
+&lt;span class="badge badge--success"&gt;Success&lt;/span&gt;
+
+&lt;a href="#" class="tag"&gt;Tag&lt;/a&gt;
+&lt;a href="#" class="tag tag--primary"&gt;Primary Tag&lt;/a&gt;</pre></div>
+                </article>
+
+                <!-- Stats -->
+                <article style="margin-bottom: var(--space-3xl);">
+                    <h3 class="heading heading--xl heading--bordeaux">Stats</h3>
+                    <p class="text">Statistik-Komponente</p>
+
+                    <h4 class="heading heading--md">Verfügbare Klassen:</h4>
+                    <div>
+                        <span class="class-tag">.stats</span>
+                        <span class="class-tag">.stats__number</span>
+                        <span class="class-tag">.stats__label</span>
+                    </div>
+
+                    <div class="component-box">
+                        <div class="block block--4col">
+                            <div class="stats">
+                                <div class="stats__number">500+</div>
+                                <div class="stats__label">Projekte</div>
+                            </div>
+                            <div class="stats">
+                                <div class="stats__number">98%</div>
+                                <div class="stats__label">Zufriedenheit</div>
+                            </div>
+                            <div class="stats">
+                                <div class="stats__number">24/7</div>
+                                <div class="stats__label">Support</div>
+                            </div>
+                            <div class="stats">
+                                <div class="stats__number">1k+</div>
+                                <div class="stats__label">Kunden</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-block"><pre>&lt;div class="stats"&gt;
+    &lt;div class="stats__number"&gt;500+&lt;/div&gt;
+    &lt;div class="stats__label"&gt;Projekte&lt;/div&gt;
+&lt;/div&gt;</pre></div>
+                </article>
+
+                <!-- Quote -->
+                <article style="margin-bottom: var(--space-3xl);">
+                    <h3 class="heading heading--xl heading--bordeaux">Quote</h3>
+                    <p class="text">Zitat-Komponente</p>
+
+                    <h4 class="heading heading--md">Verfügbare Klassen:</h4>
+                    <div>
+                        <span class="class-tag">.quote</span>
+                        <span class="class-tag">.quote__text</span>
+                        <span class="class-tag">.quote__author</span>
+                    </div>
+
+                    <div class="component-box">
+                        <blockquote class="quote">
+                            <p class="quote__text">Ein inspirierendes Zitat steht hier.</p>
+                            <cite class="quote__author">— Author Name</cite>
+                        </blockquote>
+                    </div>
+
+                    <div class="code-block"><pre>&lt;blockquote class="quote"&gt;
+    &lt;p class="quote__text"&gt;Zitat Text&lt;/p&gt;
+    &lt;cite class="quote__author"&gt;— Author&lt;/cite&gt;
+&lt;/blockquote&gt;</pre></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Typography Section -->
+        <section class="section" id="typography">
+            <div class="container">
+                <h2 class="heading heading--2xl heading--blue">Typography</h2>
+
+                <!-- Headings -->
+                <article style="margin-bottom: var(--space-3xl);">
+                    <h3 class="heading heading--xl heading--bordeaux">Headings</h3>
+
+                    <h4 class="heading heading--md">Verfügbare Klassen:</h4>
+                    <div>
+                        <span class="class-tag">.heading</span>
+                        <span class="class-tag">.heading--xs</span>
+                        <span class="class-tag">.heading--sm</span>
+                        <span class="class-tag">.heading--md</span>
+                        <span class="class-tag">.heading--lg</span>
+                        <span class="class-tag">.heading--xl</span>
+                        <span class="class-tag">.heading--2xl</span>
+                        <span class="class-tag">.heading--3xl</span>
+                        <span class="class-tag">.heading--blue</span>
+                        <span class="class-tag">.heading--bordeaux</span>
+                        <span class="class-tag">.heading--white</span>
+                        <span class="class-tag">.heading--center</span>
+                        <span class="class-tag">.heading--no-margin</span>
+                    </div>
+
+                    <div class="component-box">
+                        <h1 class="heading heading--3xl">Heading 3XL</h1>
+                        <h2 class="heading heading--2xl">Heading 2XL</h2>
+                        <h3 class="heading heading--xl">Heading XL</h3>
+                        <h4 class="heading heading--lg">Heading LG</h4>
+                        <h5 class="heading heading--md">Heading MD</h5>
+                        <h6 class="heading heading--sm">Heading SM</h6>
+                    </div>
+
+                    <div class="code-block"><pre>&lt;h1 class="heading heading--3xl"&gt;Heading&lt;/h1&gt;
+&lt;h2 class="heading heading--2xl heading--blue"&gt;Blue&lt;/h2&gt;
+&lt;h3 class="heading heading--xl heading--bordeaux"&gt;Bordeaux&lt;/h3&gt;
+&lt;h4 class="heading heading--lg heading--center"&gt;Zentriert&lt;/h4&gt;</pre></div>
+                </article>
+
+                <!-- Text -->
+                <article style="margin-bottom: var(--space-3xl);">
+                    <h3 class="heading heading--xl heading--bordeaux">Text</h3>
+
+                    <h4 class="heading heading--md">Verfügbare Klassen:</h4>
+                    <div>
+                        <span class="class-tag">.text</span>
+                        <span class="class-tag">.text--lg</span>
+                        <span class="class-tag">.text--xl</span>
+                        <span class="class-tag">.text--muted</span>
+                        <span class="class-tag">.text--light</span>
+                        <span class="class-tag">.text--inverse</span>
+                        <span class="class-tag">.text--center</span>
+                        <span class="class-tag">.text--bold</span>
+                        <span class="class-tag">.text--medium</span>
+                        <span class="class-tag">.text--no-margin</span>
+                    </div>
+
+                    <div class="component-box">
+                        <p class="text">Standard Text</p>
+                        <p class="text text--lg">Large Text</p>
+                        <p class="text text--xl">Extra Large Text</p>
+                        <p class="text text--muted">Muted Text</p>
+                        <p class="text text--bold">Bold Text</p>
+                    </div>
+
+                    <div class="code-block"><pre>&lt;p class="text"&gt;Standard&lt;/p&gt;
+&lt;p class="text text--lg"&gt;Large&lt;/p&gt;
+&lt;p class="text text--muted"&gt;Muted&lt;/p&gt;
+&lt;p class="text text--bold"&gt;Bold&lt;/p&gt;</pre></div>
+                </article>
+
+                <!-- Lists -->
+                <article style="margin-bottom: var(--space-3xl);">
+                    <h3 class="heading heading--xl heading--bordeaux">Lists</h3>
+
+                    <h4 class="heading heading--md">Verfügbare Klassen:</h4>
+                    <div>
+                        <span class="class-tag">.list</span>
+                        <span class="class-tag">.list--bullets</span>
+                        <span class="class-tag">.list--numbers</span>
+                        <span class="class-tag">.list--horizontal</span>
+                        <span class="class-tag">.list__item</span>
+                    </div>
+
+                    <div class="component-box">
+                        <div class="block block--3col">
+                            <div>
+                                <h5 class="heading heading--sm">Checkmarks</h5>
+                                <ul class="list">
+                                    <li class="list__item">Item 1</li>
+                                    <li class="list__item">Item 2</li>
+                                    <li class="list__item">Item 3</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="heading heading--sm">Bullets</h5>
+                                <ul class="list list--bullets">
+                                    <li class="list__item">Item 1</li>
+                                    <li class="list__item">Item 2</li>
+                                    <li class="list__item">Item 3</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="heading heading--sm">Numbers</h5>
+                                <ul class="list list--numbers">
+                                    <li class="list__item">Item 1</li>
+                                    <li class="list__item">Item 2</li>
+                                    <li class="list__item">Item 3</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-block"><pre>&lt;ul class="list"&gt;
+    &lt;li class="list__item"&gt;Checkmark&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul class="list list--bullets"&gt;
+    &lt;li class="list__item"&gt;Bullet&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul class="list list--numbers"&gt;
+    &lt;li class="list__item"&gt;Number&lt;/li&gt;
+&lt;/ul&gt;</pre></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Forms Section -->
+        <section class="section section--gray" id="forms">
+            <div class="container container--narrow">
+                <h2 class="heading heading--2xl heading--blue">Forms</h2>
+
+                <article>
+                    <h3 class="heading heading--xl heading--bordeaux">Form Elements</h3>
+
+                    <h4 class="heading heading--md">Verfügbare Klassen:</h4>
+                    <div>
+                        <span class="class-tag">.form-group</span>
+                    </div>
+
+                    <div class="component-box">
+                        <form>
+                            <div class="form-group">
+                                <label for="demo-input">Label</label>
+                                <input type="text" id="demo-input" placeholder="Text Input">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="demo-email">E-Mail</label>
+                                <input type="email" id="demo-email" placeholder="email@beispiel.de">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="demo-textarea">Textarea</label>
+                                <textarea id="demo-textarea" rows="4" placeholder="Ihre Nachricht..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn--primary">Absenden</button>
+                        </form>
+                    </div>
+
+                    <div class="code-block"><pre>&lt;form&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label for="name"&gt;Name&lt;/label&gt;
+        &lt;input type="text" id="name" required&gt;
+    &lt;/div&gt;
+
+    &lt;div class="form-group"&gt;
+        &lt;label for="message"&gt;Nachricht&lt;/label&gt;
+        &lt;textarea id="message" rows="5"&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+
+    &lt;button class="btn btn--primary"&gt;Senden&lt;/button&gt;
+&lt;/form&gt;</pre></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Utility Classes -->
+        <section class="section">
+            <div class="container">
+                <h2 class="heading heading--2xl heading--blue">Utility Classes</h2>
+
+                <article style="margin-bottom: var(--space-3xl);">
+                    <h3 class="heading heading--xl heading--bordeaux">Dividers</h3>
+
+                    <h4 class="heading heading--md">Verfügbare Klassen:</h4>
+                    <div>
+                        <span class="class-tag">.divider</span>
+                        <span class="class-tag">.divider--thick</span>
+                        <span class="class-tag">.divider--dashed</span>
+                    </div>
+
+                    <div class="code-block"><pre>&lt;div class="divider"&gt;&lt;/div&gt;
+&lt;div class="divider divider--thick"&gt;&lt;/div&gt;
+&lt;div class="divider divider--dashed"&gt;&lt;/div&gt;</pre></div>
+                </article>
+
+                <article style="margin-bottom: var(--space-3xl);">
+                    <h3 class="heading heading--xl heading--bordeaux">Spacers</h3>
+
+                    <h4 class="heading heading--md">Verfügbare Klassen:</h4>
+                    <div>
+                        <span class="class-tag">.spacer</span>
+                        <span class="class-tag">.spacer--sm</span>
+                        <span class="class-tag">.spacer--lg</span>
+                        <span class="class-tag">.spacer--xl</span>
+                    </div>
+
+                    <div class="code-block"><pre>&lt;div class="spacer"&gt;&lt;/div&gt;
+&lt;div class="spacer--lg"&gt;&lt;/div&gt;</pre></div>
+                </article>
+
+                <article style="margin-bottom: var(--space-3xl);">
+                    <h3 class="heading heading--xl heading--bordeaux">Helper Classes</h3>
+
+                    <h4 class="heading heading--md">Verfügbare Klassen:</h4>
+                    <div>
+                        <span class="class-tag">.text-center</span>
+                        <span class="class-tag">.text-left</span>
+                        <span class="class-tag">.text-right</span>
+                        <span class="class-tag">.mx-auto</span>
+                        <span class="class-tag">.w-full</span>
+                        <span class="class-tag">.h-full</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Color Reference -->
+        <section class="section section--blue">
+            <div class="container">
+                <h2 class="heading heading--2xl heading--blue">CSS Variables Referenz</h2>
+
+                <article style="margin-bottom: var(--space-3xl);">
+                    <h3 class="heading heading--xl heading--bordeaux">Farben</h3>
+
+                    <div class="code-block"><pre>/* Hauptfarben */
+--color-blue-primary: #00305e;
+--color-bordeaux: #5e0031;
+--color-white: #ffffff;
+--color-black: #000000;
+
+/* Graustufen */
+--color-gray-100: #f8f9fa;
+--color-gray-300: #dee2e6;
+--color-gray-500: #6c757d;
+--color-gray-900: #212529;
+
+/* Text */
+--color-text: #00305e;
+--color-text-muted: #6c757d;
+--color-text-inverse: #ffffff;</pre></div>
+                </article>
+
+                <article style="margin-bottom: var(--space-3xl);">
+                    <h3 class="heading heading--xl heading--bordeaux">Spacing</h3>
+
+                    <div class="code-block"><pre>--space-2xs: 0.25rem;
+--space-xs: 0.5rem;
+--space-sm: 0.75rem;
+--space-md: 1rem;
+--space-lg: 1.5rem;
+--space-xl: 2rem;
+--space-2xl: 3rem;
+--space-3xl: 4rem;
+--space-4xl: 5rem;
+--space-5xl: 6rem;</pre></div>
+                </article>
+
+                <article style="margin-bottom: var(--space-3xl);">
+                    <h3 class="heading heading--xl heading--bordeaux">Typography</h3>
+
+                    <div class="code-block"><pre>/* Font Sizes */
+--font-size-xs: 0.875rem;
+--font-size-sm: 1rem;
+--font-size-md: 1.125rem;
+--font-size-lg: 1.5rem;
+--font-size-xl: 2rem;
+--font-size-2xl: 3rem;
+
+/* Fluid Sizes */
+--font-size-fluid-base: clamp(1rem, 0.95rem + 0.5vw, 1.125rem);
+--font-size-fluid-lg: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+--font-size-fluid-xl: clamp(2rem, 1.5rem + 2vw, 3rem);
+--font-size-fluid-2xl: clamp(2.5rem, 2rem + 2.5vw, 4rem);
+--font-size-fluid-3xl: clamp(3rem, 2.5rem + 3vw, 5rem);
+
+/* Font Weights */
+--font-weight-regular: 400;
+--font-weight-medium: 500;
+--font-weight-bold: 700;</pre></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="cta cta--bordeaux">
+            <div class="container">
+                <div class="cta__content">
+                    <h2 class="cta__title">Fertig zum Entwickeln?</h2>
+                    <p class="cta__description">Nutze diese Komponenten für dein nächstes Projekt</p>
+                    <div class="cta__buttons">
+                        <a href="index.html" class="btn btn--white">Zur Hauptseite</a>
+                        <a href="#layout" class="btn btn--secondary-light">Nach oben</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Design System</h4>
+                    <p>Umfassendes CheatSheet mit allen Komponenten und Code-Beispielen.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Sections</h4>
+                    <ul class="footer-links">
+                        <li><a href="#layout">Layout</a></li>
+                        <li><a href="#components">Komponenten</a></li>
+                        <li><a href="#typography">Typography</a></li>
+                        <li><a href="#forms">Forms</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Hauptseite</a></li>
+                        <li><a href="#layout">Nach oben</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Design System CheatSheet</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
