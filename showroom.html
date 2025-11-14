@@ -11,63 +11,89 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         .code-block {
-            background: var(--color-gray-900);
-            color: #e6eef5;
-            padding: var(--space-lg);
-            margin: var(--space-md) 0;
+            background: #1a1a1a;
+            color: #f8f8f2;
+            padding: var(--space-xl);
+            margin: var(--space-lg) 0;
             overflow-x: auto;
-            font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
-            line-height: 1.6;
-            border-left: 4px solid var(--color-blue-primary);
+            font-family: 'Courier New', Monaco, monospace;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            border: 2px solid var(--color-blue-primary);
+            position: relative;
+        }
+        .code-block::before {
+            content: 'HTML';
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--color-blue-primary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.7rem;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
         .code-block pre {
             margin: 0;
-            color: #e6eef5;
+            color: #f8f8f2;
+            white-space: pre-wrap;
+            word-wrap: break-word;
         }
         .component-box {
-            border: 2px solid var(--color-border);
-            padding: var(--space-xl);
-            margin: var(--space-lg) 0;
-            background: var(--color-gray-100);
+            border: 3px solid var(--color-blue-primary);
+            padding: var(--space-2xl);
+            margin: var(--space-xl) 0;
+            background: white;
+            position: relative;
+        }
+        .component-box::before {
+            content: 'LIVE PREVIEW';
+            position: absolute;
+            top: -12px;
+            left: var(--space-lg);
+            background: var(--color-blue-primary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.7rem;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
         .class-tag {
             display: inline-block;
-            background: var(--color-accent-primary-light);
-            color: var(--color-blue-primary);
-            padding: 0.25rem 0.5rem;
+            background: var(--color-blue-primary);
+            color: white;
+            padding: 0.35rem 0.75rem;
             font-family: 'Courier New', monospace;
-            font-size: 0.8rem;
-            margin: 0.25rem;
-            border: 1px solid var(--color-blue-primary);
+            font-size: 0.85rem;
+            margin: 0.35rem 0.35rem 0.35rem 0;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
-        .section-nav {
-            position: sticky;
-            top: 80px;
-            background: var(--color-white);
-            padding: var(--space-md);
-            border: 2px solid var(--color-border);
+        .class-tags-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: var(--space-md) 0;
+        }
+        .component-section {
+            margin-bottom: var(--space-5xl);
+            padding: var(--space-2xl);
+            background: white;
+            border: 1px solid var(--color-border);
+        }
+        .component-section-title {
+            border-bottom: 4px solid var(--color-blue-primary);
+            padding-bottom: var(--space-md);
             margin-bottom: var(--space-xl);
         }
-        .section-nav h3 {
-            margin-bottom: var(--space-sm);
-            font-size: var(--font-size-md);
-        }
-        .section-nav ul {
-            list-style: none;
-            padding: 0;
-        }
-        .section-nav li {
-            margin-bottom: var(--space-xs);
-        }
-        .section-nav a {
-            color: var(--color-text);
-            text-decoration: none;
-            font-size: var(--font-size-sm);
-        }
-        .section-nav a:hover {
-            color: var(--color-blue-primary);
-            text-decoration: underline;
+        .example-label {
+            font-weight: bold;
+            color: var(--color-bordeaux);
+            margin: var(--space-lg) 0 var(--space-md) 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -115,18 +141,19 @@
                 <h2 class="heading heading--2xl heading--blue">Layout Komponenten</h2>
 
                 <!-- Container -->
-                <article style="margin-bottom: var(--space-3xl);">
-                    <h3 class="heading heading--xl heading--bordeaux">Container</h3>
-                    <p class="text">Zentrierter Container mit maximaler Breite</p>
+                <article class="component-section">
+                    <h3 class="heading heading--xl heading--bordeaux component-section-title">Container</h3>
+                    <p class="text text--lg">Zentrierter Container mit maximaler Breite für Content-Bereiche</p>
 
-                    <h4 class="heading heading--md">Verfügbare Klassen:</h4>
-                    <div>
+                    <div class="example-label">Verfügbare Klassen:</div>
+                    <div class="class-tags-wrapper">
                         <span class="class-tag">.container</span>
                         <span class="class-tag">.container--narrow</span>
                         <span class="class-tag">.container--wide</span>
                         <span class="class-tag">.container--full</span>
                     </div>
 
+                    <div class="example-label">Verwendung:</div>
                     <div class="code-block"><pre>&lt;div class="container"&gt;
     &lt;!-- Standardbreite: 1200px --&gt;
 &lt;/div&gt;
@@ -251,17 +278,21 @@
                 </article>
 
                 <!-- Cards -->
-                <article style="margin-bottom: var(--space-3xl);">
-                    <h3 class="heading heading--xl heading--bordeaux">Cards</h3>
-                    <p class="text">Content-Container mit Hover-Effekten</p>
+                <article class="component-section">
+                    <h3 class="heading heading--xl heading--bordeaux component-section-title">Cards</h3>
+                    <p class="text text--lg">Content-Container mit Hover-Effekten und verschiedenen Varianten</p>
 
-                    <h4 class="heading heading--md">Verfügbare Klassen:</h4>
-                    <div>
+                    <div class="example-label">Card Varianten:</div>
+                    <div class="class-tags-wrapper">
                         <span class="class-tag">.card</span>
                         <span class="class-tag">.card--dark</span>
                         <span class="class-tag">.card--featured</span>
                         <span class="class-tag">.card--bordeaux</span>
                         <span class="class-tag">.card--no-hover</span>
+                    </div>
+
+                    <div class="example-label">Card Elemente:</div>
+                    <div class="class-tags-wrapper">
                         <span class="class-tag">.card__image</span>
                         <span class="class-tag">.card__content</span>
                         <span class="class-tag">.card__title</span>
@@ -269,31 +300,36 @@
                         <span class="class-tag">.card__link</span>
                     </div>
 
+                    <div class="example-label">Live Beispiele:</div>
                     <div class="component-box">
                         <div class="block block--3col">
                             <div class="card">
                                 <div class="card__content">
                                     <h3 class="card__title">Standard Card</h3>
-                                    <p class="card__description">Eine normale Card mit Inhalt</p>
+                                    <p class="card__description">Eine normale Card mit Inhalt und Hover-Effekt</p>
                                     <a href="#" class="card__link">Mehr erfahren</a>
                                 </div>
                             </div>
                             <div class="card card--featured">
                                 <div class="card__content">
-                                    <h3 class="card__title">Featured</h3>
-                                    <p class="card__description">Mit Badge</p>
+                                    <h3 class="card__title">Featured Card</h3>
+                                    <p class="card__description">Mit automatischem Badge</p>
+                                    <a href="#" class="card__link">Details ansehen</a>
                                 </div>
                             </div>
                             <div class="card card--dark">
                                 <div class="card__content">
                                     <h3 class="card__title">Dark Card</h3>
-                                    <p class="card__description">Dunkler Hintergrund</p>
+                                    <p class="card__description">Dunkler Hintergrund mit hellem Text</p>
+                                    <a href="#" class="card__link">Entdecken</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="code-block"><pre>&lt;div class="card"&gt;
+                    <div class="example-label">Code:</div>
+                    <div class="code-block"><pre>&lt;!-- Standard Card --&gt;
+&lt;div class="card"&gt;
     &lt;div class="card__content"&gt;
         &lt;h3 class="card__title"&gt;Titel&lt;/h3&gt;
         &lt;p class="card__description"&gt;Beschreibung&lt;/p&gt;
@@ -301,22 +337,30 @@
     &lt;/div&gt;
 &lt;/div&gt;
 
+&lt;!-- Featured Card mit Badge --&gt;
 &lt;div class="card card--featured"&gt;
-    &lt;!-- Featured Card mit Badge --&gt;
+    &lt;div class="card__content"&gt;
+        &lt;h3 class="card__title"&gt;Featured&lt;/h3&gt;
+        &lt;p class="card__description"&gt;Text&lt;/p&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 
+&lt;!-- Dark Card --&gt;
 &lt;div class="card card--dark"&gt;
-    &lt;!-- Dunkle Card --&gt;
+    &lt;div class="card__content"&gt;
+        &lt;h3 class="card__title"&gt;Dark&lt;/h3&gt;
+        &lt;p class="card__description"&gt;Text&lt;/p&gt;
+    &lt;/div&gt;
 &lt;/div&gt;</pre></div>
                 </article>
 
                 <!-- Buttons -->
-                <article style="margin-bottom: var(--space-3xl);">
-                    <h3 class="heading heading--xl heading--bordeaux">Buttons</h3>
-                    <p class="text">Interaktive Button-Komponenten</p>
+                <article class="component-section">
+                    <h3 class="heading heading--xl heading--bordeaux component-section-title">Buttons</h3>
+                    <p class="text text--lg">Interaktive Button-Komponenten mit verschiedenen Varianten und Größen</p>
 
-                    <h4 class="heading heading--md">Verfügbare Klassen:</h4>
-                    <div>
+                    <div class="example-label">Button Varianten:</div>
+                    <div class="class-tags-wrapper">
                         <span class="class-tag">.btn</span>
                         <span class="class-tag">.btn--primary</span>
                         <span class="class-tag">.btn--secondary</span>
@@ -325,34 +369,51 @@
                         <span class="class-tag">.btn--white</span>
                         <span class="class-tag">.btn--ghost</span>
                         <span class="class-tag">.btn--secondary-light</span>
+                    </div>
+
+                    <div class="example-label">Button Größen:</div>
+                    <div class="class-tags-wrapper">
                         <span class="class-tag">.btn--sm</span>
                         <span class="class-tag">.btn--lg</span>
                         <span class="class-tag">.btn--full</span>
                     </div>
 
+                    <div class="example-label">Live Beispiele - Varianten:</div>
                     <div class="component-box">
-                        <div class="block block--center" style="gap: var(--space-md); flex-wrap: wrap;">
+                        <div class="block block--center" style="gap: var(--space-lg); flex-wrap: wrap;">
                             <a href="#" class="btn btn--primary">Primary</a>
                             <a href="#" class="btn btn--secondary">Secondary</a>
                             <a href="#" class="btn btn--bordeaux">Bordeaux</a>
-                            <a href="#" class="btn btn--outline-bordeaux">Outline</a>
+                            <a href="#" class="btn btn--outline-bordeaux">Outline Bordeaux</a>
+                            <a href="#" class="btn btn--white">White</a>
                             <a href="#" class="btn btn--ghost">Ghost</a>
                         </div>
-                        <div class="spacer--sm"></div>
-                        <div class="block block--center" style="gap: var(--space-md);">
+                    </div>
+
+                    <div class="example-label">Live Beispiele - Größen:</div>
+                    <div class="component-box">
+                        <div class="block block--center" style="gap: var(--space-lg); align-items: center;">
                             <a href="#" class="btn btn--primary btn--sm">Small</a>
                             <a href="#" class="btn btn--primary">Regular</a>
                             <a href="#" class="btn btn--primary btn--lg">Large</a>
                         </div>
                     </div>
 
-                    <div class="code-block"><pre>&lt;a href="#" class="btn btn--primary"&gt;Primary&lt;/a&gt;
+                    <div class="example-label">Code:</div>
+                    <div class="code-block"><pre>&lt;!-- Button Varianten --&gt;
+&lt;a href="#" class="btn btn--primary"&gt;Primary&lt;/a&gt;
 &lt;a href="#" class="btn btn--secondary"&gt;Secondary&lt;/a&gt;
 &lt;a href="#" class="btn btn--bordeaux"&gt;Bordeaux&lt;/a&gt;
+&lt;a href="#" class="btn btn--outline-bordeaux"&gt;Outline&lt;/a&gt;
+&lt;a href="#" class="btn btn--white"&gt;White&lt;/a&gt;
+&lt;a href="#" class="btn btn--ghost"&gt;Ghost&lt;/a&gt;
 
-&lt;!-- Größen --&gt;
+&lt;!-- Button Größen --&gt;
 &lt;a href="#" class="btn btn--primary btn--sm"&gt;Small&lt;/a&gt;
+&lt;a href="#" class="btn btn--primary"&gt;Regular&lt;/a&gt;
 &lt;a href="#" class="btn btn--primary btn--lg"&gt;Large&lt;/a&gt;
+
+&lt;!-- Full Width Button --&gt;
 &lt;a href="#" class="btn btn--primary btn--full"&gt;Full Width&lt;/a&gt;</pre></div>
                 </article>
 
